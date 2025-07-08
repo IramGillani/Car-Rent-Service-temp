@@ -1,0 +1,11 @@
+const Button = ({ title, padding, btnClass }) => {
+  return (
+    <button
+      className={`text-white rounded-pill bg-primary transition-all duration-[0.5s] hover:bg-secondry font-semibold cursor-pointer ${btnClass} ${padding}`}
+    >
+      {title}
+    </button>
+  );
+};
+
+export default Button;
