@@ -3,6 +3,7 @@ import { cardContent } from "../../data.jsx";
 import FactsAbout from "../factsCounter.jsx";
 import Header from "../Header.jsx";
 import Reviews from "../Reviews.jsx";
+import Banner from "../banner.jsx";
 const Card = ({ icon, title, desc, className = "" }) => {
   return (
     <div className="bg-primary rounded-xl">
@@ -38,6 +39,7 @@ const Service = () => {
         </div>
         <FactsAbout />
         <Reviews />
+        <Banner />
       </section>
     </>
   );
