@@ -4,6 +4,10 @@ import { FaRoad } from "react-icons/fa";
 import { FaUmbrella } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa";
 import { FaCarAlt } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 export const pages = ["Home", "About", "Service", "Blog", "Pages", "Contact"];
 export const cardContent = [
@@ -73,4 +77,10 @@ export const clientReviews = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam nulla natus veniam nobis perspiciatis pariatur! Reprehenderit praesentium ",
     profile: "./img/testimonial-3.jpg",
   },
+];
+export const socialLinks = [
+  { link: "https://www.facebook.com", icon: <FaFacebook /> },
+  { link: "https://www.twitter.com", icon: <FaTwitter /> },
+  { link: "https://www.instagram.com", icon: <FaInstagram /> },
+  { link: "https://www.linkedin.com", icon: <FaLinkedinIn /> },
 ];

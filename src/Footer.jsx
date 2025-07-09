@@ -1,13 +1,10 @@
 import { FaAngleRight } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
 import { FaCopyright } from "react-icons/fa";
 import { FaMapMarker } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 import { FaPrint } from "react-icons/fa";
+import { socialLinks } from "./data";
 
 const Footer = () => {
   return (
@@ -90,12 +87,7 @@ const Footer = () => {
             ))}
           </div>
           <div className="flex gap-4 items-center">
-            {[
-              { link: "https://www.facebook.com", icon: <FaFacebook /> },
-              { link: "https://www.twitter.com", icon: <FaTwitter /> },
-              { link: "https://www.instagram.com", icon: <FaInstagram /> },
-              { link: "https://www.linkedin.com", icon: <FaLinkedinIn /> },
-            ].map(({ icon, link }) => (
+            {socialLinks.map(({ icon, link }) => (
               <a
                 href={link}
                 className="bg-secondry rounded-full text-white hover:bg-primary duration-[0.5s] transition-all w-11 h-11 flex items-center justify-center"

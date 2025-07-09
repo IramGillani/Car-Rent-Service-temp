@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../Header";
 import SectionAbout from "../SectionAbout";
-import Reviews from "../Reviews";
+
+import CountUp from "react-countup";
 
 const About = () => {
   return (
@@ -11,7 +12,7 @@ const About = () => {
         title="About"
         desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,"
       />
-      <Reviews />
+      <CountUp />
       <div className="bg-breadcrumb">
         <SectionAbout
           title="Process"
