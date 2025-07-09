@@ -4,7 +4,7 @@ A modern and responsive car rental landing page built using **React**, **Tailwin
 
 ## 📸 Screenshot
 
-![Banner](./banner.jpg)
+![Banner](./banner.jng)
 
 ## ⚙️ Features
 
