@@ -5,10 +5,38 @@ import { FaEnvelope } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 import { FaPrint } from "react-icons/fa";
 import { socialLinks } from "./data";
+import gsap from "gsap";
+import { useRef, useEffect } from "react";
+import { ScrollTrigger } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+
+    gsap.fromTo(
+      el,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+
+        duration: 1.2,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, []);
   return (
-    <footer className="mx-auto w-full py-12 px-3 bg-dark">
+    <footer
+      className="mx-auto w-full py-12 px-3 md:px-8 bg-dark "
+      ref={scrollRef}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12 py-12 px-3">
         <div className="flex flex-col gap-4 items-start">
           <h4>About Us</h4>
@@ -76,11 +104,11 @@ const Footer = () => {
             ].map(({ contact, icon }) => (
               <a
                 href="#"
-                className="flex gap-2 items-center hover:text-primary "
+                className="flex gap-2 items-center hover:text-primary group"
                 key={contact}
               >
                 {icon}
-                <span className="hover:text-primary hover:tracking-[1px] duration-[0.5s] transition-all">
+                <span className="group-hover:text-primary group-hover:tracking-[1px] duration-[0.5s] transition-all">
                   {contact}{" "}
                 </span>
               </a>
@@ -89,6 +117,7 @@ const Footer = () => {
           <div className="flex gap-4 items-center">
             {socialLinks.map(({ icon, link }) => (
               <a
+                key={link}
                 href={link}
                 className="bg-secondry rounded-full text-white hover:bg-primary duration-[0.5s] transition-all w-11 h-11 flex items-center justify-center"
                 target="_blank"

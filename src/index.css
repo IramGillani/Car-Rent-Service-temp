@@ -13,6 +13,10 @@
   body {
     background-color: #ffffff;
     font-family: var(--font-mons);
+    line-height: 1.5;
+    color: var(--color-light);
+    font-size: 1rem;
+    font-weight: 400;
   }
   a {
     text-decoration: none;
@@ -23,10 +27,12 @@
   h2 {
     @apply uppercase mb-[1rem] font-semibold text-center;
     font-size: calc(1.425rem + 2.1vw);
+    color: var(--color-dark);
   }
   h4 {
     font-size: calc(1.275rem + 0.3vw);
   }
+
   section {
     @apply py-12 px-2;
   }
@@ -42,6 +48,9 @@
   @apply rounded-[50rem];
 }
 @layer utilities {
+  .main-section {
+    @apply mx-auto px-4 md:px-12;
+  }
   .day {
     @apply text-[#6c757d];
   }
@@ -68,10 +77,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-grow: 0;
+    flex-basis: auto;
+    flex-shrink: 0;
     color: var(--color-secondry);
     transition: 0.5s;
     background-color: var(--color-primary);
     animation: icon-animate 5s ease-in 1s infinite alternate both;
+
     /* animation: name duration timing-function delay iteration-count direction fill-mode; */
   }
 
@@ -92,20 +105,77 @@
       border-radius: 67% 33% 29% 71% / 39% 46% 54% 61%;
     }
   }
-}
-.back-to-top {
-  @apply text-white bg-secondry w-14 h-14 rounded-full flex items-center justify-center transition duration-[0.5s] z-[99] fixed bottom-8 right-8 hover:bg-primary cursor-pointer;
 
-  & arrow-above {
-    animation: go-to-top 1.2s linear infinite alternate-reverse;
+  .back-to-top {
+    @apply text-white bg-secondry w-14 h-14 rounded-full flex items-center justify-center transition duration-[0.5s] z-[99] fixed bottom-8 right-8 hover:bg-primary cursor-pointer;
+
+    & .arrow-above {
+      animation: go-to-top 1.2s linear infinite alternate-reverse;
+    }
   }
-
   @keyframes go-to-top {
     0% {
       transform: translateY(-0.5rem);
     }
     100% {
       transform: translateY(1rem);
+    }
+  }
+
+  /* @keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.5s ease-out forwards;
+} */
+  .animate-up {
+    animation: fadeInUp 1.8s;
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .animate-down {
+    animation: fadeInDown 1.8s;
+  }
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .fill {
+    animation: fillBackground 3s ease-in 1s once alternate both;
+  }
+  @keyframes fillBackground {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 50%;
+      background-color: black;
+    }
+    100% {
+      height: 100%;
+      background-color: chocolate;
     }
   }
 }

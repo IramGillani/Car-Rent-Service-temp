@@ -5,7 +5,6 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-
 import { pages } from "./data.jsx";
 import Button from "./components/Button.jsx";
 
@@ -13,7 +12,7 @@ import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 
 import Home from "./components/Pages/Home";
-import About from "./components/Pages/About";
+import About from "./components/Pages/About/About.jsx";
 import Blog from "./components/Pages/Blog";
 import Contact from "./components/Pages/Contact";
 import Service from "./components/Pages/Service";
@@ -21,7 +20,7 @@ import Pages from "./components/Pages/Pages";
 
 import Header from "./components/Header";
 import ScrolltoTop from "./components/ScrolltoTop.jsx";
-import Reviews from "./components/Reviews.jsx";
+
 import Footer from "./Footer.jsx";
 
 function App() {
@@ -106,11 +105,7 @@ function App() {
                 </li>
               ))}
             </ul>
-            <Button
-              title="Get Started"
-              padding="py-2 px-4"
-              btnClass="hidden lg:block"
-            />
+            <Button title="Get Started" btnClass="hidden lg:block py-2 px-4" />
           </>
         ) : (
           <ul className="flex flex-col gap-4 bg-white max-w-dvh z-[999]">
@@ -130,7 +125,7 @@ function App() {
                 </Link>
               </li>
             ))}
-            <Button title="Get Started" padding="py-2 px-4" />
+            <Button title="Get Started" btnClass='"py-2 px-4' />
           </ul>
         )}
       </nav>
@@ -139,7 +134,7 @@ function App() {
 
   return (
     <>
-      <main className="relative min-h-screen w-screen overflow-x-hidden">
+      <main className="relative min-h-screen w-screen overflow-x-hidden mx-auto my-0">
         <Navbar />
         <div>
           <Routes>

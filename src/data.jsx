@@ -84,3 +84,14 @@ export const socialLinks = [
   { link: "https://www.instagram.com", icon: <FaInstagram /> },
   { link: "https://www.linkedin.com", icon: <FaLinkedinIn /> },
 ];
+export const blogContent = [
+  {
+    src: "./img/blog-1.jpg",
+    date: "30 Dec 2025",
+    personName: "Martin.C",
+    commentsCount: 6,
+    blogTitle: "Rental Cars how to check driving fines?",
+    blogDesc:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.",
+  },
+];
