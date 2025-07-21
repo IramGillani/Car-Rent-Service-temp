@@ -1,4 +1,4 @@
-import SectionAbout from "../../SectionAbout";
+import SectionAbout from "./SectionAbout";
 import { FaTrophy } from "react-icons/fa";
 import { FaRoad } from "react-icons/fa";
 import { FaTag } from "react-icons/fa";

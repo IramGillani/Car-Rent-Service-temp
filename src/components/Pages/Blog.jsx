@@ -12,14 +12,14 @@ const Blog = () => {
   }) => {
     return (
       <>
-        <article class="blog-card">
+        <article className="blog-card">
           <header>
             <h2>
               <a href="/blog/post-slug">Blog Post Title</a>
             </h2>
             <p>
-              by <span class="author">Author Name</span> on{" "}
-              <time datetime="2025-07-18">July 18, 2025</time>
+              by <span className="author">Author Name</span> on{" "}
+              <time dateTime="2025-07-18">July 18, 2025</time>
             </p>
           </header>
 
@@ -28,13 +28,13 @@ const Blog = () => {
             <figcaption>Image Caption (optional)</figcaption>
           </figure>
 
-          <p class="excerpt">
+          <p className="excerpt">
             This is a short summary or introduction of the blog post to
             encourage readers to click and read more...
           </p>
 
           <footer>
-            <a href="/blog/post-slug" class="read-more">
+            <a href="/blog/post-slug" className="read-more">
               Read More →
             </a>
           </footer>
@@ -45,14 +45,16 @@ const Blog = () => {
   return (
     <>
       <Header pageTitle="Blog & News" />
-      <div className="main-section">
-        <SectionAbout
-          title="Blog & News"
-          desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,"
-        />
-      </div>
-      <section className="flex flex-wrap">
-        <BlogCard />
+      <section className="main-section">
+        <div className="main-section">
+          <SectionAbout
+            title="Blog & News"
+            desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,"
+          />
+        </div>
+        <section className="flex flex-wrap">
+          <BlogCard />
+        </section>
       </section>
     </>
   );

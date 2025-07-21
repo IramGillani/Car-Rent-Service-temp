@@ -1,7 +1,7 @@
 import "./App.css";
 import { FaCarAlt } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { FaAngleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
@@ -10,25 +10,46 @@ import Button from "./components/Button.jsx";
 
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 import Home from "./components/Pages/Home";
-import About from "./components/Pages/About/About.jsx";
+import About from "./components/Pages/About.jsx";
 import Blog from "./components/Pages/Blog";
 import Contact from "./components/Pages/Contact";
 import Service from "./components/Pages/Service";
 import Pages from "./components/Pages/Pages";
-
-import Header from "./components/Header";
 import ScrolltoTop from "./components/ScrolltoTop.jsx";
 
 import Footer from "./Footer.jsx";
+import OurFeatures from "./components/Pages/OurFeatures.jsx";
+import OurTeam from "./components/Pages/OurTeam.jsx";
+import Testimonal from "./components/Pages/Testimonal.jsx";
+import OurCars from "./components/Pages/OurCars.jsx";
+import ErrorPage from "./components/Pages/404Page.jsx";
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  //  gsap.utils.toArray("section").forEach((section) => {
+  //   gsap.fromTo(section,
+  //     { opacity: 0, y: 60 },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 1.2,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         start: "top 85%",
+  //         toggleActions: "play none none none",
+  //       }
+  //     }
+  //   );
+  // });
+
   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
 
   const Navbar = () => {
     const navContainerRef = useRef(null);
-
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const { y: currentScrollY } = useWindowScroll();
@@ -71,7 +92,7 @@ function App() {
 
     return (
       <nav
-        className="flex inset-x-0 top-4 z-50 h-16 justify-between py-2 px-4 md:p-12  w-full items-center"
+        className="flex inset-x-0 top-0 z-[99] fixed h-16 justify-between py-2 px-4 md:p-12 bottom-0 w-full items-center"
         ref={navContainerRef}
       >
         <Link to="/" className="text-primary font-bold">
@@ -87,45 +108,74 @@ function App() {
         </span>
         {isNavbarOpen ? (
           <>
-            <ul className=" hidden lg:flex gap-8 items-center justify-between">
-              {pages.map((page, index) => (
+            <ul className="hidden lg:flex gap-8 items-center justify-between">
+              {pages.map(({ title, subPages }, index) => (
                 <li
-                  key={page}
-                  className="text-dark hover:text-primary transition-colors duration-[0.5s] text-[17px] font-medium"
+                  key={index}
+                  className="relative group text-dark hover:text-primary transition-colors duration-500 text-[17px] font-medium "
                 >
                   <Link
-                    to={`/${page}`}
+                    to={`/${title}`}
                     onClick={() => setActiveTab(index)}
                     className={`hover:text-primary ${
                       activeTab === index ? "text-primary" : "text-secondry"
+                    } ${
+                      Array.isArray(subPages) ? "flex gap-1 items-center" : ""
                     }`}
                   >
-                    {page}
+                    {title}
+                    {Array.isArray(subPages) && subPages.length > 0 && (
+                      <FaAngleDown />
+                    )}
                   </Link>
+
+                  {/* Only show dropdown if there are subPages */}
+                  {Array.isArray(subPages) && subPages.length > 0 && (
+                    <ul className="dropDown-menu">
+                      {subPages.map((sub, subIndex) => (
+                        <li key={subIndex}>
+                          <Link
+                            to={`/${sub.title
+                              .replace(/\s+/g, "-")
+                              .toLowerCase()}`}
+                            onClick={() => setActiveTab(index)}
+                            className={`dropDown-item ${
+                              activeTab === subIndex
+                                ? "text-primary"
+                                : "text-secondry"
+                            }`}
+                          >
+                            {sub.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
+
             <Button title="Get Started" btnClass="hidden lg:block py-2 px-4" />
           </>
         ) : (
-          <ul className="flex flex-col gap-4 bg-white max-w-dvh z-[999]">
-            {pages.map((page, index) => (
+          <ul className="flex flex-col gap-4 bg-white max-w-dvh z-[999] w-full px-6 h-dvh mx-auto p-[12px]">
+            {pages.map(({ title }, index) => (
               <li
-                key={`${page}`}
-                className="text-dark hover:text-primary block transition-colors duration-[0.5s] text-[17px] font-medium"
+                key={`${index}`}
+                className="text-dark hover:text-primary block transition-colors duration-[0.5s] text-[17px] font-medium "
               >
                 <Link
-                  to={`/${page}`}
+                  to={`/${title}`}
                   onClick={() => setActiveTab(index)}
                   className={
                     activeTab === index ? "text-primary" : "text-secondry"
                   }
                 >
-                  {page}
+                  {title}
                 </Link>
               </li>
             ))}
-            <Button title="Get Started" btnClass='"py-2 px-4' />
+            <Button title="Get Started" btnClass='"py-2 px-4 w-1/2' />
           </ul>
         )}
       </nav>
@@ -134,7 +184,7 @@ function App() {
 
   return (
     <>
-      <main className="relative min-h-screen w-screen overflow-x-hidden mx-auto my-0">
+      <main className="relative min-h-screen w-screen mt-20 md:mt-24 overflow-x-hidden mx-auto my-0">
         <Navbar />
         <div>
           <Routes>
@@ -144,6 +194,11 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/pages" element={<Pages />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/our-features" element={<OurFeatures />} />
+            <Route path="/our-cars" element={<OurCars />} />
+            <Route path="/our-Team" element={<OurTeam />} />
+            <Route path="/testimonial" element={<Testimonal />} />
+            <Route path="/404-page" element={<ErrorPage />} />
           </Routes>
         </div>
 

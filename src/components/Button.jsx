@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Button = ({ title, btnClass }) => {
   return (
     <button
-      className={`text-white rounded-pill bg-primary transition-all duration-[0.5s] hover:bg-secondry font-semibold cursor-pointer ${btnClass} `}
+      className={`text-white rounded-pill bg-primary transition-all duration-[0.5s] hover:bg-secondry capitalize font-semibold cursor-pointer ${btnClass} `}
     >
-      {title}
+      <Link to={"/"}>{title}</Link>
     </button>
   );
 };

@@ -1,16 +1,16 @@
-import Header from "../../Header";
-import SectionAbout from "../../SectionAbout";
+import Header from "../Header";
+import SectionAbout from "../SectionAbout";
 
 import { FaCheckCircle } from "react-icons/fa";
-import Button from "../../Button";
-import FactsAbout from "../../factsCounter";
-import Banner from "../../Banner";
+import Button from "../Button";
+import FactsAbout from "../factsCounter";
+import Banner from "../Banner";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Features from "./Features";
-import CustomerSupport from "./CustomerSupport";
-import Process from "./Process";
+import Features from "../Features";
+import CustomerSupport from "../CustomerSupport";
+import Process from "../Process";
 gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   const bannerRef = useRef();
@@ -109,7 +109,7 @@ const About = () => {
             {" "}
             <Button
               title="More About Us"
-              btnClass="!rounded-[10px] py-4 px-12  flex-1 text-nowrap"
+              btnClass="!rounded-[10px] py-4 px-12  flex-1 text-nowrap focus:outline-none focus:bg-[#c7001a] focus:border-[#bb0018] focus:border-4"
             />
             <div className="flex gap-2 items-center md:flex-1 ">
               <img

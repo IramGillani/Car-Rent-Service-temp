@@ -1,4 +1,4 @@
-import SectionAbout from "../../SectionAbout";
+import SectionAbout from "./SectionAbout";
 const Process = () => {
   return (
     <div className="bg-breadcrumb p-8 mx-auto">

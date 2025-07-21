@@ -9,7 +9,23 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
-export const pages = ["Home", "About", "Service", "Blog", "Pages", "Contact"];
+export const pages = [
+  { title: "Home" },
+  { title: "About" },
+  { title: "Service" },
+  { title: "Blog" },
+  {
+    title: "Pages",
+    subPages: [
+      { title: "Our Features" },
+      { title: "Our Cars" },
+      { title: "Our Team" },
+      { title: "Testimonial" },
+      { title: "404 Page" },
+    ],
+  },
+  { title: "Contact" },
+];
 export const cardContent = [
   {
     title: "Phone Reservation",

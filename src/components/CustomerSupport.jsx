@@ -1,5 +1,5 @@
-import SectionAbout from "../../SectionAbout";
-import { socialLinks } from "../../../data";
+import SectionAbout from "./SectionAbout";
+import { socialLinks } from "../data";
 const CustomerSupport = () => {
   const TestimonialCard = ({ name, profession, profile }) => {
     return (
@@ -28,7 +28,7 @@ const CustomerSupport = () => {
                       href={link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:bg-primary hover:text-white rounded-full text-primary bg-white duration-[0.5s] transition-all w-11 h-11 flex items-center justify-center"
+                      className="hover:bg-primary focus:outline-none focus:border-[#807e7e]  focus:border-3 hover:text-white rounded-full text-primary bg-white duration-[0.5s] transition-all w-11 h-11 flex items-center justify-center"
                     >
                       {icon}
                     </a>
