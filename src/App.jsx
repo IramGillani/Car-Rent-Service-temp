@@ -54,6 +54,7 @@ function App() {
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const { y: currentScrollY } = useWindowScroll();
     const [activeTab, setActiveTab] = useState(0);
+    const [openPageList, setOpenPageList] = useState(false);
 
     useEffect(() => {
       if (currentScrollY === 0) {
@@ -158,21 +159,52 @@ function App() {
             <Button title="Get Started" btnClass="hidden lg:block py-2 px-4" />
           </>
         ) : (
-          <ul className="flex flex-col gap-4 bg-white max-w-dvh z-[999] w-full px-6 h-dvh mx-auto p-[12px]">
-            {pages.map(({ title }, index) => (
+          <ul className="flex flex-col gap-4 bg-white w-dvw right-0 left-0 max-w-dvh z-[999] absolute top-[160%] md:top-[125%] px-6 h-dvh mx-auto md:px-[12px] 0 lg:hidden">
+            {pages.map(({ title, subPages }, index) => (
               <li
                 key={`${index}`}
-                className="text-dark hover:text-primary block transition-colors duration-[0.5s] text-[17px] font-medium "
+                className="text-dark hover:text-primary block transition-colors duration-[0.5s] text-[17px] font-medium relative"
               >
                 <Link
                   to={`/${title}`}
                   onClick={() => setActiveTab(index)}
-                  className={
+                  className={`hover:text-primary ${
                     activeTab === index ? "text-primary" : "text-secondry"
-                  }
+                  } ${
+                    Array.isArray(subPages) ? "flex gap-1 items-center" : ""
+                  }`}
                 >
                   {title}
+                  {Array.isArray(subPages) && subPages.length > 0 && (
+                    <FaAngleDown
+                      onClick={() => setOpenPageList(() => !openPageList)}
+                    />
+                  )}
                 </Link>
+                {/* Only show dropdown if there are subPages */}
+                {Array.isArray(subPages) &&
+                  subPages.length > 0 &&
+                  openPageList && (
+                    <ul className=" border-light bg-[#f2f2f2]  border-2 mt-4 rounded-[10px]">
+                      {subPages.map((sub, subIndex) => (
+                        <li key={subIndex}>
+                          <Link
+                            to={`/${sub.title
+                              .replace(/\s+/g, "-")
+                              .toLowerCase()}`}
+                            onClick={() => setActiveTab(index)}
+                            className={`dropDown-item text-[14px] ${
+                              activeTab === subIndex
+                                ? "text-primary"
+                                : "text-secondry"
+                            }`}
+                          >
+                            {sub.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
               </li>
             ))}
             <Button title="Get Started" btnClass='"py-2 px-4 w-1/2' />

@@ -8,7 +8,10 @@ import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { FaMapMarker } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
+import { FaPrint } from "react-icons/fa";
 export const pages = [
   { title: "Home" },
   { title: "About" },
@@ -110,4 +113,33 @@ export const blogContent = [
     blogDesc:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.",
   },
+  {
+    src: "./img/blog-2.jpg",
+    date: "25 Dec 2025",
+    personName: "Martin.C",
+    commentsCount: 6,
+    blogTitle: "Rental cost of sport and other cars",
+    blogDesc:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.",
+  },
+  {
+    src: "./img/blog-3.jpg",
+    date: "27 Dec 2025",
+    personName: "Martin.C",
+    commentsCount: 6,
+    blogTitle: "Document required for car rental",
+    blogDesc:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.",
+  },
+];
+export const contactInfo = [
+  {
+    contact: "123 Street, New York, USA",
+    icon: <FaMapMarker />,
+    label: "Address",
+  },
+
+  { contact: "info@example.com", icon: <FaEnvelope />, label: "Mail Us" },
+  { contact: "+012 345 67890", icon: <FaPhone />, label: "Telephone" },
+  { contact: "+012 345 67899", icon: <FaPrint />, label: "Yoursite@ex.com" },
 ];

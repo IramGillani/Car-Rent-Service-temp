@@ -1,10 +1,6 @@
 import { FaAngleRight } from "react-icons/fa";
 import { FaCopyright } from "react-icons/fa";
-import { FaMapMarker } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa";
-import { FaPhone } from "react-icons/fa";
-import { FaPrint } from "react-icons/fa";
-import { socialLinks } from "./data";
+import { contactInfo, socialLinks } from "./data";
 import gsap from "gsap";
 import { useRef, useEffect } from "react";
 import { ScrollTrigger } from "gsap/all";
@@ -95,13 +91,7 @@ const Footer = () => {
         <div className="text-secondry flex flex-col">
           <h4>Contact Info</h4>
           <div className="flex flex-col mb-4 ">
-            {[
-              { contact: "123 Street, New York, USA", icon: <FaMapMarker /> },
-
-              { contact: "info@example.com", icon: <FaEnvelope /> },
-              { contact: "+012 345 67890", icon: <FaPhone /> },
-              { contact: "+012 345 67899", icon: <FaPrint /> },
-            ].map(({ contact, icon }) => (
+            {contactInfo.map(({ contact, icon }) => (
               <a
                 href="#"
                 className="flex gap-2 items-center hover:text-primary group"
