@@ -143,3 +143,20 @@ export const contactInfo = [
   { contact: "+012 345 67890", icon: <FaPhone />, label: "Telephone" },
   { contact: "+012 345 67899", icon: <FaPrint />, label: "Yoursite@ex.com" },
 ];
+export const branchDetail = [
+  {
+    branchNum: "01",
+    address: "123 Street New York.USA",
+    phone: "(+012) 3456 7890",
+  },
+  {
+    branchNum: "02",
+    address: "123 Street New York.USA",
+    phone: "(+012) 3456 7890",
+  },
+  {
+    branchNum: "03",
+    address: "123 Street New York.USA",
+    phone: "(+012) 3456 7890",
+  },
+];

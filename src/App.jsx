@@ -26,6 +26,7 @@ import OurTeam from "./components/Pages/OurTeam.jsx";
 import Testimonal from "./components/Pages/Testimonal.jsx";
 import OurCars from "./components/Pages/OurCars.jsx";
 import ErrorPage from "./components/Pages/404Page.jsx";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -233,6 +234,7 @@ function App() {
             <Route path="/404-page" element={<ErrorPage />} />
           </Routes>
         </div>
+    
 
         <Footer />
         <ScrolltoTop />

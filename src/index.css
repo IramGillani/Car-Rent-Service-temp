@@ -78,6 +78,9 @@
     padding: 60px 0 60px 0;
     transition: 0.5s;
   }
+  .form-input {
+    @apply py-4 px-6 rounded-[10px] w-full text-light bg-white outline-none focus:border-amber-600;
+  }
   .icon-back {
     width: 90px;
     height: 90px;

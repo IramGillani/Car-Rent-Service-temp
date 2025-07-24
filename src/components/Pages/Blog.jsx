@@ -3,6 +3,8 @@ import SectionAbout from "../SectionAbout";
 import { blogContent } from "../../data";
 import { FaUser } from "react-icons/fa";
 import { FaCommentAlt } from "react-icons/fa";
+import FactsAbout from "../factsCounter";
+import Banner from "../Banner";
 const Blog = () => {
   const BlogCard = ({
     personName,
@@ -60,12 +62,11 @@ const Blog = () => {
     <>
       <Header pageTitle="Blog & News" />
       <section className="main-section">
-        <div className="main-section">
-          <SectionAbout
-            title="Blog & News"
-            desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,"
-          />
-        </div>
+        <SectionAbout
+          title="Blog & News"
+          desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,"
+        />
+
         <section className="flex gap-6 mt-6 flex-wrap items-center justify-center lg:flex-nowrap">
           {blogContent.map(
             ({ src, personName, blogDesc, blogTitle, date, commentsCount }) => (
@@ -79,6 +80,10 @@ const Blog = () => {
               />
             )
           )}
+        </section>
+        <FactsAbout />
+        <section>
+          <Banner />
         </section>
       </section>
     </>
