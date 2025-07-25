@@ -1,9 +1,15 @@
-import React from "react";
 import Header from "../Header";
-import Reviews from "../Reviews";
+import Features from "../CustomerSupport";
 
 const OurTeam = () => {
-  return <>Team</>;
+  return (
+    <>
+      <Header pageTitle="Team" />
+      <section className="main-section">
+        <Features />
+      </section>
+    </>
+  );
 };
 
 export default OurTeam;

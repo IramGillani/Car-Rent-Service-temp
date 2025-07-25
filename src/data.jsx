@@ -12,6 +12,9 @@ import { FaMapMarker } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 import { FaPrint } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
+import { FaGasPump } from "react-icons/fa";
+import { FaCogs } from "react-icons/fa";
 export const pages = [
   { title: "Home" },
   { title: "About" },
@@ -158,5 +161,67 @@ export const branchDetail = [
     branchNum: "03",
     address: "123 Street New York.USA",
     phone: "(+012) 3456 7890",
+  },
+];
+export const carInfo = [
+  {
+    name: "Toyota Corolla Cross",
+    review: "3.5",
+    img: "./img/car-1.png",
+    rent: "128:00",
+    subInfo: [
+      { label: 4, icon: <FaUsers /> },
+      { label: 2015, icon: <FaCarAlt /> },
+
+      { label: "petrol", icon: <FaGasPump /> },
+      { label: "27K", icon: <FaCarAlt /> },
+      { label: "auto", icon: <FaCogs /> },
+      { label: "AT/MT", icon: <FaRoad /> },
+    ],
+  },
+  {
+    name: "Tesla Model S Plaid",
+    img: "./img/car-2.png",
+    review: "3.8",
+    rent: "128:00",
+    subInfo: [
+      { label: 4, icon: <FaUsers /> },
+      { label: 2015, icon: <FaCarAlt /> },
+
+      { label: "petrol", icon: <FaGasPump /> },
+      { label: "27K", icon: <FaCarAlt /> },
+      { label: "auto", icon: <FaCogs /> },
+      { label: "AT/MT", icon: <FaRoad /> },
+    ],
+  },
+  {
+    name: "Hyundai Kona Electric",
+    img: "./img/car-3.png",
+    review: "3.5",
+    rent: "128:00",
+    subInfo: [
+      { label: 4, icon: <FaUsers /> },
+      { label: 2015, icon: <FaCarAlt /> },
+
+      { label: "petrol", icon: <FaGasPump /> },
+      { label: "27K", icon: <FaCarAlt /> },
+      { label: "auto", icon: <FaCogs /> },
+      { label: "AT/MT", icon: <FaRoad /> },
+    ],
+  },
+  {
+    name: "Mercedes Benz R3",
+    review: "4.8",
+    rent: "128:00",
+    img: "./img/car-4.png",
+    subInfo: [
+      { label: 4, icon: <FaUsers /> },
+      { label: 2015, icon: <FaCarAlt /> },
+
+      { label: "petrol", icon: <FaGasPump /> },
+      { label: "27K", icon: <FaCarAlt /> },
+      { label: "auto", icon: <FaCogs /> },
+      { label: "AT/MT", icon: <FaRoad /> },
+    ],
   },
 ];
