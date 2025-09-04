@@ -234,7 +234,6 @@ function App() {
             <Route path="/404-page" element={<ErrorPage />} />
           </Routes>
         </div>
-    
 
         <Footer />
         <ScrolltoTop />
